@@ -29,8 +29,7 @@ const COLUNAS = [
   ['prova_dist', 'Prova · distância'], ['prova_tempo', 'Prova · tempo'], ['prova_mes', 'Prova · mês'],
   ['qualidade', 'Treinos de qualidade/mês'], ['pontos', 'Pontos'], ['dias', 'Dias'], ['horarios', 'Horários'],
   ['compromisso', 'Compromisso'], ['traz', 'Traz alguém'], ['nome', 'Nome'], ['whatsapp', 'WhatsApp'],
-  ['instagram', 'Instagram'], ['objetivo', 'Objetivo 2027'], ['pagaria', 'Pagaria plano individual'],
-  ['consentimento', 'Consentimento LGPD']
+  ['instagram', 'Instagram'], ['objetivo', 'Objetivo 2027'], ['consentimento', 'Consentimento LGPD']
 ];
 
 function doPost(e) {
@@ -72,7 +71,7 @@ function configurar() {
   const titulos = COLUNAS.map(c => c[1]);
   sh.getRange(1, 1, 1, titulos.length).setValues([titulos]).setFontWeight('bold').setBackground('#15181B').setFontColor('#F6F6F4');
   sh.setFrozenRows(1);
-  sh.getRange('B:V').setNumberFormat('@');   // "4:35" fica texto, não vira hora
+  sh.getRange('B:U').setNumberFormat('@');   // "4:35" fica texto, não vira hora
   sh.getRange('A:A').setNumberFormat('dd/mm/yyyy hh:mm');
   const padrao = ss.getSheetByName('Página1') || ss.getSheetByName('Sheet1');
   if (padrao && padrao.getLastRow() === 0 && ss.getSheets().length > 1) ss.deleteSheet(padrao);

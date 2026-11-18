@@ -275,15 +275,6 @@ footer{margin-top:40px;font-size:11px;color:var(--muted);border-top:1px solid va
     </select>
   </fieldset>
 
-  <fieldset>
-    <legend>Pagaria por um plano individual, com planilha e feedback? <span class="small">(opcional)</span></legend>
-    <div class="opts">
-      <label class="opt"><input type="radio" name="pagaria" value="Não"><span>Não</span></label>
-      <label class="opt"><input type="radio" name="pagaria" value="Talvez"><span>Talvez</span></label>
-      <label class="opt"><input type="radio" name="pagaria" value="Sim"><span>Sim</span></label>
-    </div>
-  </fieldset>
-
   <fieldset id="q-lgpd">
     <label class="opt consent"><input type="checkbox" name="consentimento" value="Sim"><span>Concordo que meu nome, contato e respostas sejam usados só para montar os grupos e avisar sobre os treinos do Threshold Lab. Os dados ficam guardados por até 12 meses, não são repassados a ninguém, e posso pedir a exclusão a qualquer momento por WhatsApp ou DM no Instagram.</span></label>
     <div class="err">Precisamos do seu aceite para guardar o contato.</div>
@@ -452,7 +443,7 @@ form.addEventListener('submit', async e => {
     pontos: junta('pontos'), dias: junta('dias'), horarios: junta('horarios'),
     compromisso: um('compromisso'), traz: um('traz'),
     nome: $('#nome').value.trim(), whatsapp: $('#whatsapp').value.trim(), instagram: $('#instagram').value.trim(),
-    objetivo: form.objetivo.value, pagaria: um('pagaria'), consentimento: 'Sim'
+    objetivo: form.objetivo.value, consentimento: 'Sim'
   };
   const btn = $('#enviar'); btn.disabled = true; btn.textContent = 'Enviando…';
   try {
