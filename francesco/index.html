@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning time · Threshold Lab</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../icone.svg" type="image/svg+xml">
+<style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#ECEDEA;color:#5E646A;
+  font:12px/1.6 ui-monospace,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase}
+@media (prefers-color-scheme:dark){body{background:#121416;color:#9AA0A5}}
+a{color:inherit}
+</style>
+</head>
+<body>
+<!--
+  thresholdlab.com.br/francesco — o painel de treino do Francesco.
+  O painel é gerado todo dia pela rotina em _Pessoal\Saúde\02 - Treinos\Plataforma e publicado
+  no repositório vida-boa- (um commit só, refeito a cada dia, para não guardar histórico dos dados).
+  Esta página só busca a versão do dia e a mostra aqui, sem precisar de commit diário neste repositório.
+-->
+<p id="msg">carregando o painel…</p>
+<noscript><p><a href="https://francescopossato14-tech.github.io/vida-boa-/">abrir o painel</a></p></noscript>
+<script>
+const FONTE = "https://francescopossato14-tech.github.io/vida-boa-/index.html";
+fetch(FONTE + "?t=" + Date.now(), {cache: "no-store"})
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+  .then(html => { document.open(); document.write(html); document.close(); })
+  .catch(() => {
+    document.getElementById("msg").innerHTML =
+      'não deu para carregar agora · <a href="https://francescopossato14-tech.github.io/vida-boa-/">abrir o painel</a>';
+  });
+</script>
+</body>
+</html>
